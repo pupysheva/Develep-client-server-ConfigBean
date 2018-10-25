@@ -15,8 +15,12 @@ public class ApplicationStarter {
         this.datePresenter = dp;
     }
 
+    @DateInject(format = "hh:mm:ss")
+    private String date;
+
     @PostConstruct
     public void init() {
+        System.out.printf("Application start at: %s\n", date);
         datePresenter.present();
     }
 }
