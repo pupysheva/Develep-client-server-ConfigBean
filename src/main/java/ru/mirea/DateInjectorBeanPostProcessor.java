@@ -36,15 +36,19 @@ public class DateInjectorBeanPostProcessor implements BeanPostProcessor {
     }
 
     public Object postProcessAfterInitialization(final Object bean, String beanName) throws BeansException {
-        Object proxy = Proxy.newProxyInstance(
-                bean.getClass().getClassLoader(),
-                bean.getClass().getInterfaces(),
-                new InvocationHandler() {
-                    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                        return method.invoke(bean, args); // need final bean.
+
+        if (bean.getClass().isAnnotationPresent(MethodTimer.class)) {
+            Object proxy = Proxy.newProxyInstance(
+                    bean.getClass().getClassLoader(),
+                    bean.getClass().getInterfaces(),
+                    new InvocationHandler() {
+                        public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                            return method.invoke(bean, args); // need final bean.
+                        }
                     }
-                }
-        );
-        return proxy;
+            );
+            return proxy;
+        }
+        return bean;
     }
 }
