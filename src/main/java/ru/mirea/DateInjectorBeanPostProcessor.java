@@ -10,8 +10,6 @@ import java.util.Date;
 public class DateInjectorBeanPostProcessor implements BeanPostProcessor {
 
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("BEAN NAME: " + beanName);
-
         for(Field field : bean.getClass().getDeclaredFields()) // get date and fullDate and more private and public filds.
         {
             // a lot of cost of CPU
