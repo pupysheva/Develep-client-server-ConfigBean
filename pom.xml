@@ -1,0 +1,14 @@
+<project>
+    <version>0.0.1</version>
+    <groupId>ru.mirea</groupId>
+    <artifactId>date-injector</artifactId>
+    <modelVersion>4.0.0</modelVersion>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+    </dependencies>
+</project>
