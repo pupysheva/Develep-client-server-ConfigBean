@@ -7,10 +7,10 @@ import javax.annotation.PostConstruct;
 @Component
 public class DatePresenter {
 
-    @DateInject(format = "dd:mm:ss") // day min sec
+    @DateInject(format = "hh:mm:ss") // day min sec
     private String date;
 
-    @DateInject(format = "yyy-MM-dd dd:mm:ss") // day min sec
+    @DateInject(format = "yyy-MM-dd hh:mm:ss") // day min sec
     private String fullDate;
 
     @PostConstruct
