@@ -38,12 +38,16 @@ public class DateInjectorBeanPostProcessor implements BeanPostProcessor {
     public Object postProcessAfterInitialization(final Object bean, String beanName) throws BeansException {
 
         if (bean.getClass().isAnnotationPresent(MethodTimer.class)) {
+            System.out.println("Add time logger to bean " + beanName);
             Object proxy = Proxy.newProxyInstance(
                     bean.getClass().getClassLoader(),
                     bean.getClass().getInterfaces(),
                     new InvocationHandler() {
                         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                            return method.invoke(bean, args); // need final bean.
+                            long start = System.currentTimeMillis();
+                            Object result = method.invoke(bean, args); // need final bean.
+                            System.out.println("Total time for method " + method.getName() + ": " + (System.currentTimeMillis() - start));
+                            return result;
                         }
                     }
             );
