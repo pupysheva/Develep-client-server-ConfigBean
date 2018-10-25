@@ -40,3 +40,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+*.name
+.idea/compiler.xml
+*.xml
+DCSCB.iml
