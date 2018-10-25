@@ -42,5 +42,10 @@ $RECYCLE.BIN/
 *.lnk
 *.name
 .idea/compiler.xml
-*.xml
 DCSCB.iml
+.idea/workspace.xml
+.idea/uiDesigner.xml
+.idea/libraries/Maven__org_yaml_snakeyaml_1_19.xml
+.idea/vcs.xml
+.idea/libraries/Maven__org_springframework_spring_expression_5_0_10_RELEASE.xml
+.idea/*
